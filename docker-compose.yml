@@ -12,7 +12,8 @@ services:
       WORDPRESS_DB_PASSWORD: wp_password
       WORDPRESS_DB_NAME: wp_database
     volumes:
-      - wordpress_data:/var/www/html
+      - ./wp-content/themes:/var/www/html/wp-content/themes
+      - ./wp-content/plugins:/var/www/html/wp-content/plugins
     depends_on:
       - db
 
