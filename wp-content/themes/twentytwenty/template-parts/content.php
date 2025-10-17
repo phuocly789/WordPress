@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Template for displaying single post content
  *
@@ -25,11 +26,6 @@ $has_sidebar_10 = is_active_sidebar('sidebar-10'); // Recent post
 			<?php if (is_active_sidebar('sidebar-9')): ?>
 				<div class="widget-categories">
 					<?php dynamic_sidebar('sidebar-9'); ?>
-				</div>
-			<?php else: ?>
-				<div class="widget-categories">
-					<h2 class="widget-title">Categories</h2>
-					<ul><?php wp_list_categories(['title_li' => '']); ?></ul>
 				</div>
 			<?php endif; ?>
 		</aside>
@@ -82,8 +78,8 @@ $has_sidebar_10 = is_active_sidebar('sidebar-10'); // Recent post
 						if ($recent_posts_query->have_posts()):
 							while ($recent_posts_query->have_posts()):
 								$recent_posts_query->the_post();
-								?>
-								<li class="recent-item">
+						?>
+								<li class="recent-item text-start">
 									<div class="date-box">
 										<div class="day-year">
 											<span class="day"><?php echo get_the_date('d'); ?></span>
@@ -97,7 +93,7 @@ $has_sidebar_10 = is_active_sidebar('sidebar-10'); // Recent post
 										<a href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
 									</div>
 								</li>
-								<?php
+						<?php
 							endwhile;
 							wp_reset_postdata();
 						endif;

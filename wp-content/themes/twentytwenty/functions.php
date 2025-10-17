@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Twenty Twenty functions and definitions
  *
@@ -257,11 +258,14 @@ add_action('wp_enqueue_scripts', 'twentytwenty_register_scripts');
 function twentytwenty_skip_link_focus_fix()
 {
 	// The following is minified via `terser --compress --mangle -- assets/js/skip-link-focus-fix.js`.
-	?>
+?>
 	<script>
-		/(trident|msie)/i.test(navigator.userAgent) && document.getElementById && window.addEventListener && window.addEventListener("hashchange", function () { var t, e = location.hash.substring(1); /^[A-z0-9_-]+$/.test(e) && (t = document.getElementById(e)) && (/^(?:a|select|input|button|textarea)$/i.test(t.tagName) || (t.tabIndex = -1), t.focus()) }, !1);
+		/(trident|msie)/i.test(navigator.userAgent) && document.getElementById && window.addEventListener && window.addEventListener("hashchange", function() {
+			var t, e = location.hash.substring(1);
+			/^[A-z0-9_-]+$/.test(e) && (t = document.getElementById(e)) && (/^(?:a|select|input|button|textarea)$/i.test(t.tagName) || (t.tabIndex = -1), t.focus())
+		}, !1);
 	</script>
-	<?php
+<?php
 }
 
 /**
@@ -352,7 +356,6 @@ function twentytwenty_get_custom_logo($html)
 			}
 
 			$html = preg_replace($search, $replace, $html);
-
 		}
 	}
 
@@ -491,8 +494,41 @@ function twentytwenty_sidebar_registration()
 			)
 		)
 	);
+	// Sidebar 13
+	register_sidebar(
+		array_merge(
+			$shared_args,
+			array(
+				'name' => __('Sidebar 13', 'twentytwenty'),
+				'id' => 'sidebar-13',
+				'description' => __('Widgets in this area will be displayed in the left sidebar on search pages.', 'twentytwenty'),
+			)
+		)
+	);
 
+	// Sidebar 14
+	register_sidebar(
+		array_merge(
+			$shared_args,
+			array(
+				'name' => __('Sidebar 14', 'twentytwenty'),
+				'id' => 'sidebar-14',
+				'description' => __('Widgets in this area will be displayed in the right sidebar on search pages.', 'twentytwenty'),
+			)
+		)
+	);
 
+	// Sidebar 15
+	register_sidebar(
+		array_merge(
+			$shared_args,
+			array(
+				'name' => __('Sidebar 15', 'twentytwenty'),
+				'id' => 'sidebar-15',
+				'description' => __('Widgets in this area will be displayed below the search results on search pages.', 'twentytwenty'),
+			)
+		)
+	);
 }
 add_action('widgets_init', 'twentytwenty_sidebar_registration');
 
@@ -943,4 +979,3 @@ function custom_excerpt_more($more)
 	return '... <a class="read-more" href="' . get_permalink() . '">Xem thêm »</a>';
 }
 add_filter('excerpt_more', 'custom_excerpt_more');
-
