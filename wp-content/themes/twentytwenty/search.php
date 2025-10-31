@@ -67,9 +67,34 @@ $has_sidebar_10 = is_active_sidebar('sidebar-10');
 
         <div class="search-results-container">
             <aside class="sidebar-left-search">
-                <?php if (is_active_sidebar('sidebar-13')) : ?>
-                    <?php dynamic_sidebar('sidebar-13'); ?>
-                <?php endif; ?>
+                <h2 class="text-center m-3">Trang nổi bật</h2>
+                <div class="sidebar-pages-widget">
+                    <?php
+                    // Lấy danh sách các trang
+                    $pages = get_pages(array(
+                        'sort_column' => 'menu_order',
+                        'sort_order'  => 'ASC',
+                        'exclude'     => get_option('page_on_front'), // bỏ trang chủ nếu muốn
+                    ));
+
+                    foreach ($pages as $page) :
+                        $thumbnail = get_the_post_thumbnail($page->ID, 'medium');
+                        $excerpt   = wp_trim_words(strip_tags($page->post_content), 20, '...');
+                        $link      = get_permalink($page->ID);
+                    ?>
+                        <div class="page-card">
+                            <?php if ($thumbnail) : ?>
+                                <a href="<?php echo $link; ?>" class="page-thumb"><?php echo $thumbnail; ?></a>
+                            <?php endif; ?>
+                            <div class="page-info">
+                                <a href="<?php echo $link; ?>">
+                                    <h4><?php echo esc_html($page->post_title); ?></h4>
+                                </a>
+                                <p><?php echo $excerpt; ?></p>
+                            </div>
+                        </div>
+                    <?php endforeach; ?>
+                </div>
             </aside>
 
             <div class="main-content">
@@ -128,9 +153,39 @@ $has_sidebar_10 = is_active_sidebar('sidebar-10');
             </div>
 
             <div class="sidebar-right-search">
-                <?php if (is_active_sidebar('sidebar-14')) : ?>
-                    <?php dynamic_sidebar('sidebar-14'); ?>
-                <?php endif; ?>
+                <h2>Bình luận mới nhất</h2>
+                <div class="custom-comments-widget">
+                    <?php
+                    // Lấy 5 bình luận gần nhất (không tính admin)
+                    $recent_comments = get_comments(array(
+                        'number' => 5,
+                        'status' => 'approve',
+                        'type' => 'comment',
+                        // 'user_id' => 0,
+                    ));
+
+                    if ($recent_comments) :
+                        foreach ($recent_comments as $comment) :
+                            $author = get_comment_author($comment);
+                            $avatar = get_avatar($comment, 64); // ảnh đại diện
+                            $content = wp_trim_words($comment->comment_content, 40, '...');
+                            $post_link = get_permalink($comment->comment_post_ID);
+                    ?>
+                            <div class="comment-box">
+                                <div class="comment-avatar">
+                                    <?php echo $avatar; ?>
+                                </div>
+                                <div class="comment-body">
+                                    <h4 class="comment-author"><?php echo esc_html($author); ?></h4>
+                                    <p class="comment-text"><?php echo esc_html($content); ?></p>
+                                    <a href="<?php echo esc_url($post_link); ?>" class="comment-link">Xem bài viết</a>
+                                </div>
+                            </div>
+                    <?php
+                        endforeach;
+                    endif;
+                    ?>
+                </div>
             </div>
         </div>
 
@@ -138,7 +193,7 @@ $has_sidebar_10 = is_active_sidebar('sidebar-10');
             <div class="row">
                 <div class="col-md-6 offset-md-3">
                     <h4 class="fs-2">Latest News</h4>
-                    <ul class="timeline">
+                    <ul class="timeline-search">
                         <?php
                         $latest_posts = new WP_Query(array(
                             'posts_per_page' => 3,
