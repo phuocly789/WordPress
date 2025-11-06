@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Header file for the Twenty Twenty WordPress default theme.
  *
@@ -9,7 +10,8 @@
  * @since Twenty Twenty 1.0
  */
 
-?><!DOCTYPE html>
+?>
+<!DOCTYPE html>
 
 <html class="no-js" <?php language_attributes(); ?>>
 
@@ -43,7 +45,7 @@
 
 				if (true === $enable_header_search) {
 
-					?>
+				?>
 
 					<button class="toggle search-toggle mobile-search-toggle" data-toggle-target=".search-modal"
 						data-toggle-body-class="showing-search-modal" data-set-focus=".search-modal .search-field"
@@ -111,7 +113,7 @@
 
 				<?php
 				if (has_nav_menu('primary') || !has_nav_menu('expanded')) {
-					?>
+				?>
 
 					<nav class="primary-menu-wrapper"
 						aria-label="<?php echo esc_attr_x('Horizontal', 'menu', 'twentytwenty'); ?>">
@@ -128,7 +130,6 @@
 										'theme_location' => 'primary',
 									)
 								);
-
 							} elseif (!has_nav_menu('expanded')) {
 
 								wp_list_pages(
@@ -139,7 +140,6 @@
 										'walker' => new TwentyTwenty_Walker_Page(),
 									)
 								);
-
 							}
 							?>
 
@@ -147,17 +147,17 @@
 
 					</nav><!-- .primary-menu-wrapper -->
 
-					<?php
+				<?php
 				}
 
 				if (true === $enable_header_search || has_nav_menu('expanded')) {
-					?>
+				?>
 
 					<div class="header-toggles hide-no-js">
 
 						<?php
 						if (has_nav_menu('expanded')) {
-							?>
+						?>
 
 							<div class="toggle-wrapper nav-toggle-wrapper has-expanded-menu">
 
@@ -174,11 +174,11 @@
 
 							</div><!-- .nav-toggle-wrapper -->
 
-							<?php
+						<?php
 						}
 
 						if (true === $enable_header_search) {
-							?>
+						?>
 
 							<div class="toggle-wrapper search-toggle-wrapper">
 
@@ -198,7 +198,7 @@
 								<div class="account-menu">
 									<?php if (is_user_logged_in()):
 										$current_user = wp_get_current_user();
-										?>
+									?>
 										<span class="account-avatar">
 											<?php echo get_avatar($current_user->ID, 32); ?>
 										</span>
@@ -213,7 +213,8 @@
 										</div>
 									<?php else: ?>
 										<span class="account-avatar">
-											<?php echo get_avatar(0, 32, 'mysteryman'); // Ảnh default: icon user mystery ?>
+											<?php echo get_avatar(0, 32, 'mysteryman'); // Ảnh default: icon user mystery 
+											?>
 										</span>
 										<span class="account-name">Account <i class="fa-solid fa-play"></i> </span>
 										<div class="account-dropdown">
@@ -227,12 +228,12 @@
 								</div>
 							</div> <!-- .header-account -->
 
-							<?php
+						<?php
 						}
 						?>
 
 					</div><!-- .header-toggles -->
-					<?php
+				<?php
 				}
 				?>
 
@@ -253,4 +254,3 @@
 	<?php
 	// Output the menu modal.
 	get_template_part('template-parts/modal-menu');
-

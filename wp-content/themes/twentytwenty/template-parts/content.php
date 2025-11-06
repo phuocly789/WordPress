@@ -35,7 +35,7 @@ $has_sidebar_10 = is_active_sidebar('sidebar-10'); // Recent post
 
 			<?php
 			get_template_part('template-parts/entry-header');
-			get_template_part('template-parts/featured-image');
+			// get_template_part('template-parts/featured-image');
 			?>
 
 			<div class="post-inner">
