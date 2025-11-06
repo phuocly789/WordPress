@@ -1,5 +1,4 @@
 <?php
-
 /**
  * Template for displaying single post content
  *
@@ -64,45 +63,6 @@ $has_sidebar_10 = is_active_sidebar('sidebar-10'); // Recent post
 			<?php if (is_active_sidebar('sidebar-10')): ?>
 				<div class="widget-recent">
 					<?php dynamic_sidebar('sidebar-10'); ?>
-				</div>
-			<?php else: ?>
-				<div class="widget-recent">
-					<h2 class="widget-title">TIN TỨC MỚI</h2>
-					<ul class="recent-custom-list">
-						<?php
-						$recent_posts_query = new WP_Query([
-							'posts_per_page' => 3,
-							'post_status' => 'publish',
-						]);
-
-						if ($recent_posts_query->have_posts()):
-							while ($recent_posts_query->have_posts()):
-								$recent_posts_query->the_post();
-						?>
-								<li class="recent-item text-start">
-									<div class="date-box">
-										<div class="day-year">
-											<span class="day"><?php echo get_the_date('d'); ?></span>
-											<sup class="year"><?php echo get_the_date('y'); ?></sup>
-										</div>
-										<div class="month"><?php echo get_the_date('m'); ?></div>
-									</div>
-
-
-									<div class="title-box">
-										<a href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
-									</div>
-								</li>
-						<?php
-							endwhile;
-							wp_reset_postdata();
-						endif;
-						?>
-					</ul>
-
-					<div class="view-all">
-						<a href="<?php echo get_permalink(get_option('page_for_posts')); ?>">XEM TẤT CẢ TIN TỨC</a>
-					</div>
 				</div>
 			<?php endif; ?>
 
