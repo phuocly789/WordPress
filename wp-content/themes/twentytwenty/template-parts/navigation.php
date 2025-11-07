@@ -6,7 +6,7 @@
  * @package WordPress
  * @subpackage Twenty_Twenty
  * @since Twenty Twenty 1.0
- */
+ *///
 
 $next_post = get_next_post();
 $prev_post = get_previous_post();
