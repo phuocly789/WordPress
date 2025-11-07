@@ -6,7 +6,7 @@
  * @package WordPress
  * @subpackage Twenty_Twenty
  * @since Twenty Twenty 1.0
- */
+ *///
 
 /*
  * Nếu bài viết được bảo vệ bằng mật khẩu và người dùng chưa nhập mật khẩu,
