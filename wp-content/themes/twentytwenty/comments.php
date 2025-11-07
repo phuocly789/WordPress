@@ -11,7 +11,7 @@
 /*
  * Nếu bài viết được bảo vệ bằng mật khẩu và người dùng chưa nhập mật khẩu,
  * thì không hiển thị bình luận.
- */
+ *///
 if ( post_password_required() ) {
 	return;
 }

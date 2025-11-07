@@ -38,7 +38,7 @@ function twentytwenty_theme_support()
 
 	// Add default posts and comments RSS feed links to head.
 	add_theme_support('automatic-feed-links');
-	//
+	///
 	// Custom background color.
 	add_theme_support(
 		'custom-background',
