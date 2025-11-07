@@ -19,7 +19,7 @@ $has_sidebar_10 = is_active_sidebar('sidebar-10'); // Recent post
 
 	<!-- BỐ CỤC 3 CỘT -->
 	<div class="layout-wrapper">
-
+<!--  -->
 		<!-- CỘT TRÁI: Categories -->
 		<aside class="sidebar-left">
 			<?php if (is_active_sidebar('sidebar-9')): ?>
