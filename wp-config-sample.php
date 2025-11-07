@@ -24,6 +24,8 @@ define( 'DB_NAME', 'database_name_here' );
 
 /** Database username */
 define( 'DB_USER', 'username_here' );
+// /** Database username */
+// define( 'DB_USER', 'username_here' );
 
 /** Database password */
 define( 'DB_PASSWORD', 'password_here' );
