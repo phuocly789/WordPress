@@ -47,6 +47,7 @@ $has_sidebar_10 = is_active_sidebar('sidebar-10'); // Recent post
 			<!-- Prev - Next Post -->
 			<div class="post-navigation-wrapper">
 				<?php get_template_part('template-parts/navigation'); ?>
+			<!--  -->
 			</div>
 
 			<!-- Comments -->
