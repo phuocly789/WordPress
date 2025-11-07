@@ -28,7 +28,7 @@ $has_sidebar_10 = is_active_sidebar('sidebar-10'); // Recent post
 				</div>
 			<?php endif; ?>
 		</aside>
-
+<!--  -->
 
 		<!-- GIỮA: NỘI DUNG CHI TIẾT -->
 		<article <?php post_class($class); ?> id="post-<?php the_ID(); ?>">
@@ -42,6 +42,7 @@ $has_sidebar_10 = is_active_sidebar('sidebar-10'); // Recent post
 				<div class="entry-content">
 					<?php the_content(); ?>
 				</div>
+				<!--  -->
 			</div>
 
 			<!-- Prev - Next Post -->
